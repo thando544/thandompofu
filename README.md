@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Thando Mpofu Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Premium personal website for Thando Mpofu, built with React, TypeScript, Tailwind CSS, Motion, Lenis, and React Router.
 
-Currently, two official plugins are available:
+## Commands
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+npm run build
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## AI Assistant
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The floating `Thando AI` widget posts to the n8n webhook configured in `src/data/assistantKnowledge.ts`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Default webhook:
+
+```txt
+https://n8n.srv883957.hstgr.cloud/webhook/18b35d55-9147-4500-9930-028f058d2443/chat
 ```
+
+You can override it with:
+
+```env
+VITE_N8N_ASSISTANT_URL=https://your-n8n-webhook-url
+```
+
+Payload sent to n8n:
+
+```json
+{
+  "action": "sendMessage",
+  "message": "visitor question",
+  "chatInput": "visitor question",
+  "sessionId": "visitor id or anonymous",
+  "context": {
+    "consent": "accepted",
+    "visitorId": "uuid",
+    "path": "/projects",
+    "referrer": "",
+    "timestamp": "..."
+  },
+  "knowledge": {
+    "owner": {},
+    "contact": [],
+    "capabilities": [],
+    "principles": [],
+    "architecture": [],
+    "stack": [],
+    "projects": [],
+    "assistantBehavior": {}
+  },
+  "conversation": [],
+  "source": "thandompofu.com-floating-assistant"
+}
+```
+
+The `knowledge` object is the clean context the n8n workflow should use to answer questions about Thando, his projects, stack, architecture style, availability, and contact options.
