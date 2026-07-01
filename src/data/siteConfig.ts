@@ -10,6 +10,12 @@ export const SITE_CONFIG = {
   location: "Zimbabwe",
   phone: "",
   twitterHandle: "@thandompofu",
+  githubUsername: "thando544",
+  githubOrgUsername: "ItsnomatataDev",
+  githubAccounts: [
+    { username: "thando544", label: "Personal" },
+    { username: "ItsnomatataDev", label: "IT's No Matata" },
+  ],
   organization: "Thando Mpofu Portfolio",
   serviceAreas: ["Africa", "Remote", "Zimbabwe"],
 };

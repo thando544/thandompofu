@@ -150,8 +150,8 @@ export const experience = [
   {
     period: "Current",
     title: "Software Engineer",
-    context: "Building production software systems across web, mobile, automation, and AI-enabled workflows.",
-    details: ["Full-stack product delivery", "System architecture", "AI workflow implementation", "Deployment operations"],
+    context: "Leading full-stack delivery for Shearwater Victoria Falls — a multi-portal tourism operations platform with unified auth, RBAC, and team workflows.",
+    details: ["Next.js + Supabase platform architecture", "Multi-portal RBAC and RLS design", "Team, agent, and admin module delivery", "Vercel staging and client iteration"],
   },
   {
     period: "Previous",
@@ -212,8 +212,8 @@ export const labNotes = [
 
 export const openSourceStats = [
   { label: "Primary Focus", value: "React + AI systems" },
+  { label: "Accounts", value: "Personal + IT's No Matata" },
   { label: "Contribution Style", value: "Docs, fixes, reusable modules" },
-  { label: "Impact", value: "Operational tooling and product foundations" },
 ];
 
 export const contactOptions = [

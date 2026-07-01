@@ -39,6 +39,78 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Shearwater Operations Platform",
+    slug: "shearwater-operations-platform",
+    shortDescription:
+      "A unified multi-portal operations platform for Shearwater Victoria Falls — one identity layer routing team, agent, and customer access.",
+    fullDescription:
+      "Shearwater Operations is an internal platform for one of Victoria Falls' leading adventure tourism operators. It unifies authentication, role-based access, and operational workflows across Team, Agent, Customer, and Admin portals — replacing fragmented tools with a single digital headquarters.",
+    problem:
+      "Tourism operators juggle staff scheduling, agent bookings, customer enquiries, and admin oversight across disconnected systems. Each audience needs different access, but shared identity and data integrity are critical.",
+    solution:
+      "Built a Next.js platform with Supabase Auth, PostgreSQL RLS, and portal-aware routing so one login sends each user to the right workspace — team dashboards, agent booking tools, customer self-service, or admin control.",
+    architecture: [
+      "Next.js 16 App Router with Server Components and Server Actions",
+      "Supabase Auth with SSR-safe session handling",
+      "PostgreSQL 17 with Row Level Security on every table",
+      "RBAC via roles, permissions, and membership-scoped access",
+      "Multi-portal routing — Team, Agent, Customer, and Admin shells",
+      "Zod-validated server actions and audit logging",
+    ],
+    process: [
+      "Mapped portal access models for team, agents, and customers",
+      "Designed unified auth with post-login workspace routing",
+      "Built RBAC schema with invitations and membership lifecycle",
+      "Delivered agent portal — product catalog, contracted rates, and booking requests",
+      "Deployed staging environment on Vercel for iterative client review",
+    ],
+    challenges: [
+      "Routing one identity across four distinct portal experiences",
+      "Designing RLS policies that stay secure across org boundaries",
+      "Balancing tourism operations complexity with calm, scannable interfaces",
+      "Provisioning access through invitations without exposing admin surfaces",
+    ],
+    lessons: [
+      "Multi-tenant tourism platforms need identity clarity before feature depth",
+      "RLS is the foundation — permissions should be enforced at the database layer",
+      "Portal-specific shells keep complex operations software approachable",
+      "Staging deploys accelerate trust with real operators reviewing live flows",
+    ],
+    screenshots: [
+      "Agent product catalog — accommodation",
+      "Agent product catalog — activities",
+      "Product detail with contracted rates and booking request",
+      "Agent rates table — 2026 reseller pricing",
+    ],
+    relatedNotes: [
+      "supabase-rls-patterns-saas",
+      "docker-vps-deployment-checklist",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Zod",
+      "Vercel",
+      "Playwright",
+      "Vitest",
+    ],
+    images: [
+      "/assets/shearwater/agent-products-accommodation.png",
+      "/assets/shearwater/agent-products-activities.png",
+      "/assets/shearwater/agent-product-detail.png",
+      "/assets/shearwater/agent-rates.png",
+    ],
+    liveLink: "https://harold-shearwater.vercel.app",
+    githubLink: "https://github.com/ItsnomatataDev/harold-shearwater",
+    status: "in progress",
+    category: "SaaS",
+    featured: true,
+  },
+  {
     title: "Awande African Expeditions",
     slug: "awande-african-expeditions",
     shortDescription:

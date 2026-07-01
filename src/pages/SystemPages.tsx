@@ -13,6 +13,7 @@ import {
   tools,
 } from "../data/content";
 import { projects } from "../data/projects";
+import { GitHubContributions } from "../components/sections/GitHubContributions";
 
 function PageIntro({
   eyebrow,
@@ -298,13 +299,21 @@ export function OpenSource() {
               </article>
             ))}
           </div>
-          <div className="mx-auto mt-5 max-w-7xl px-6">
+          <div className="mx-auto mt-5 grid max-w-7xl gap-5 px-6 md:grid-cols-2">
             <a href="https://github.com/thando544" className="quiet-card inline-flex items-center gap-3">
               <GitBranch className="h-5 w-5 text-white" />
-              <span className="text-white">View GitHub activity</span>
+              <span className="text-white">Personal GitHub</span>
+              <ExternalLink className="h-4 w-4 text-neutral-500" />
+            </a>
+            <a href="https://github.com/ItsnomatataDev" className="quiet-card inline-flex items-center gap-3">
+              <GitBranch className="h-5 w-5 text-white" />
+              <span className="text-white">IT&apos;s No Matata GitHub</span>
               <ExternalLink className="h-4 w-4 text-neutral-500" />
             </a>
           </div>
+        </section>
+        <section className="page-band border-t border-neutral-900 pt-0">
+          <GitHubContributions />
         </section>
       </main>
     </>
